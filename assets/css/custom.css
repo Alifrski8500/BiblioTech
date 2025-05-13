@@ -1,0 +1,204 @@
+<style>
+/* Layout Global */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb; /* default light background */
+  color: #1f2937; /* default dark text */
+}
+
+/* Wrapper flex untuk sidebar dan content */
+#wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar (sudah ada stylenya, tidak diubah) */
+
+/* Page Content */
+#page-wrapper {
+  flex: 1;
+  padding: 30px;
+  background-color: #ffffff; /* white clean background untuk content */
+  min-height: 100vh;
+  margin-left: 260px; /* sesuai lebar sidebar */
+  transition: margin-left 0.3s ease;
+}
+
+/* Top Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 260px; /* sesuai lebar sidebar */
+  right: 0;
+  height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+/* Page inner untuk konten di bawah navbar */
+#page-inner {
+  margin-top: 80px; /* space untuk navbar */
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #ef4444; /* merah */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #b9c4d6; /* gray-400 */
+  background-color: #f1f5f9;
+  margin-top: 40px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Dark Mode Adjustment */
+.dark-mode body {
+  background-color: #0f172a;
+  color: #cbd5e1;
+}
+
+.dark-mode #page-wrapper {
+  background-color: #1e293b;
+}
+
+.dark-mode .navbar {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+.dark-mode footer {
+  background-color: #1e293b;
+  border-top: 1px solid #334155;
+}
+</style>
+<style>
+/* Sidebar kecil saat collapsed */
+.sidebar.collapsed {
+  width: 80px;
+  padding: 20px 10px;
+}
+
+.sidebar.collapsed h2 {
+  display: none; /* sembunyikan title */
+}
+
+.sidebar.collapsed .menu-list a {
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 0;
+  position: relative;
+}
+
+.sidebar.collapsed .menu-list a::before {
+  content: attr(data-icon);
+  font-size: 18px;
+  display: block;
+  color: #374151;
+}
+
+.dark-mode .sidebar.collapsed .menu-list a::before {
+  color: #cbd5e1;
+}
+
+/* Atur ulang posisi page-wrapper */
+#page-wrapper.collapsed {
+  margin-left: 80px;
+}
+
+/* Atur ulang posisi navbar */
+.navbar.collapsed {
+  left: 80px;
+}
+
+/* Button Toggle Sidebar */
+.toggle-sidebar-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: auto;
+  color: #374151;
+}
+
+.dark-mode .toggle-sidebar-btn {
+  color: #cbd5e1;
+}
+
+/* TABLE STYLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  background-color: #1e1e1e;
+  color: white;
+}
+
+table thead {
+  background-color: #272727;
+}
+
+table thead th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #333;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #333;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #191919;
+}
+
+table tbody td {
+  padding: 10px 15px;
+}
+
+table tbody tr:hover {
+  background-color: #2a2a2a;
+  cursor: pointer;
+}
+
+/* DataTables Pagination Style */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 5px 10px;
+  margin: 2px;
+  background: #272727;
+  color: white !important;
+  border: 1px solid #444;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #0284c7;
+  color: white !important;
+  border: 1px solid #0284c7;
+}
+</style>
