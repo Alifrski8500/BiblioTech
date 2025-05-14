@@ -1,22 +1,13 @@
-version: '3.8'
+FROM php:8.1-apache
 
-services:
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - db_data:/var/lib/mysql
+# Install ekstensi MySQLi
+RUN docker-php-ext-install mysqli
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    ports:
-      - 8080:80
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
+# Aktifkan mod_rewrite
+RUN a2enmod rewrite
 
-volumes:
-  db_data:
+# Salin file project ke dalam container
+COPY . /var/www/html/
+
+# Set permission
+RUN chown -R www-data:www-data /var/www/html
