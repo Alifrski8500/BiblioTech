@@ -15,3 +15,7 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: root
+frontend:
+  build: .
+  ports:
+    - 8080:8080
